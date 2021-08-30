@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, { Fragment, useState } from "react";
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
@@ -6,14 +6,14 @@ const InputTodo = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault(); //prevents refreshing
     try {
-      const body = {description};
-      const response = await fetch("http://localhost:5000/todos", {
+      const body = { description };
+      const response = await fetch("/todos", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
       console.log(response);
-      window.location = "/";
+      // window.location = "/";
     } catch (err) {
       console.log(err.message);
     }
